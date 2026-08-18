@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS em Folhas — Documentação CSS3</title>
+  <meta name="description" content="Referência de estudo CSS3 do CSS em Folhas: cascata, box model, Flexbox, Grid, tokens, motion, :has() e @layer.">
+  <style>
+    :root {
+      --ink: #0b1222;
+      --papel: #f4efe4;
+      --texto: #e8eefc;
+      --suave: #9aa8c7;
+      --ciano: #5eead4;
+      --ouro: #e4c36a;
+      --violeta: #a78bfa;
+      --azul: #60a5fa;
+      --magenta: #f472d0;
+      --coral: #fb7185;
+      --codigo: #0e1628;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--texto);
+      font: 1.05rem/1.65 "Segoe UI", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--ciano) 18%, transparent), transparent 42%),
+        radial-gradient(circle at 90% 8%, color-mix(in srgb, var(--magenta) 16%, transparent), transparent 38%),
+        var(--ink);
+    }
+    .folha {
+      width: min(52rem, calc(100% - 2rem));
+      margin: 1.5rem auto 3rem;
+      padding: 2.2rem 2rem 3rem;
+      background: color-mix(in srgb, #121a32 86%, white 6%);
+      border: 1px solid color-mix(in srgb, #93c5fd 22%, transparent);
+      border-radius: 1.4rem;
+    }
+    .kicker {
+      margin: 0 0 0.4rem;
+      color: var(--ciano);
+      font: 0.72rem/1.2 ui-monospace, "Cascadia Code", monospace;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 0.6rem;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      background: linear-gradient(125deg, var(--azul), var(--violeta) 42%, var(--magenta));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    h2 {
+      margin: 2.2rem 0 0.7rem;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+    h3 { margin: 1.3rem 0 0.4rem; font-size: 1.05rem; color: var(--ouro); }
+    p, li { color: color-mix(in srgb, var(--texto) 92%, var(--suave)); }
+    .legenda { color: var(--suave); font-size: 0.95rem; }
+    a { color: var(--ciano); }
+    nav.indice {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      gap: 0.35rem 1rem;
+      margin: 1.4rem 0 0.4rem;
+      padding: 1rem 1.1rem;
+      list-style: none;
+      border-radius: 0.9rem;
+      background: color-mix(in srgb, black 28%, transparent);
+    }
+    nav.indice a { text-decoration: none; font-size: 0.92rem; }
+    nav.indice a:hover { color: var(--ouro); }
+    pre, code { font-family: ui-monospace, "Cascadia Code", "Consolas", monospace; }
+    pre {
+      overflow-x: auto;
+      margin: 0.8rem 0 1.1rem;
+      padding: 1rem 1.1rem;
+      border-radius: 0.8rem;
+      background: var(--codigo);
+      color: var(--ciano);
+      font-size: 0.86rem;
+      line-height: 1.5;
+      border: 1px solid color-mix(in srgb, white 10%, transparent);
+    }
+    code { color: var(--lima, #bef264); }
+    p code, li code {
+      padding: 0.08em 0.35em;
+      border-radius: 0.35rem;
+      background: color-mix(in srgb, black 35%, transparent);
+      color: var(--ouro);
+      font-size: 0.9em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0 1.2rem;
+      font-size: 0.92rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.55rem 0.65rem;
+      border-bottom: 1px solid color-mix(in srgb, white 12%, transparent);
+    }
+    th { color: var(--ouro); font-weight: 600; }
+    .acoes { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.5rem;
+      padding: 0.4rem 1rem;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(125deg, var(--azul), var(--magenta));
+      color: #071018;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--texto);
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, white 18%, transparent);
+    }
+    footer {
+      margin-top: 2.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid color-mix(in srgb, white 12%, transparent);
+      color: var(--suave);
+      font-size: 0.85rem;
+    }
+    @media print {
+      body { background: white; color: #12182b; }
+      .folha { width: auto; margin: 0; padding: 0; border: 0; background: transparent; border-radius: 0; }
+      h1 { color: #12182b; background: none; -webkit-text-fill-color: #12182b; }
+      h3, a, pre, code { color: #12182b; }
+      pre { border: 1px solid #ccc; }
+      .acoes { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="folha">
+    <p class="kicker">CSS · em Folhas · referência offline</p>
+    <h1>Documentação CSS3</h1>
+    <p class="legenda">Apostila da trilha: do seletor à identidade visual. HTML é o esqueleto; CSS é a voz da página. Imprima ou salve em PDF pelo navegador.</p>
+    <div class="acoes">
+      <button class="btn" type="button" onclick="window.print()">Imprimir / salvar PDF</button>
+      <a class="btn btn-ghost" href="/pages/jornada.html#exercicios">Ir aos exercícios</a>
+    </div>
+
+    <nav class="indice" aria-label="Índice">
+      <a href="#papel">1. Papel do CSS</a>
+      <a href="#regra">2. Anatomia da regra</a>
+      <a href="#cascata">3. Cascata</a>
+      <a href="#seletores">4. Seletores</a>
+      <a href="#box">5. Box model</a>
+      <a href="#tipo">6. Cor e tipo</a>
+      <a href="#flex">7. Flexbox</a>
+      <a href="#grid">8. Grid</a>
+      <a href="#fluido">9. Responsivo</a>
+      <a href="#tokens">10. Tokens</a>
+      <a href="#motion">11. Motion</a>
+      <a href="#moderno">12. :has() e @layer</a>
+    </nav>
+
+    <h2 id="papel">1. O que o CSS faz — e o que o HTML faz</h2>
+    <p>HTML marca significado: títulos, parágrafos, listas, links, formulários. O navegador precisa dessa árvore para acessibilidade e SEO. CSS decide apresentação: cor, ritmo, hierarquia, layout e movimento.</p>
+    <pre>h1 { letter-spacing: -0.04em; }
+.kicker { text-transform: uppercase; }</pre>
+    <p>CSS3 é o nome popular do CSS moderno: módulos (seletores, flex, grid, animações, variáveis) em vez de um único “CSS 2.1 engessado”.</p>
+
+    <h2 id="regra">2. Anatomia de uma regra</h2>
+    <pre>seletor {
+  propriedade: valor;
+}</pre>
+    <p>Uma folha é uma lista de regras. Comentários usam <code>/* assim */</code>. Várias propriedades no mesmo bloco; várias regras para o mesmo seletor se combinam na cascata.</p>
+
+    <h2 id="cascata">3. Cascata, especificidade e herança</h2>
+    <p>Quando duas declarações brigam, o vencedor segue esta ordem de desempate:</p>
+    <ol>
+      <li><strong>Origem e importância</strong> — user-agent, usuário, autor; depois <code>!important</code> (evitar).</li>
+      <li><strong>Camadas</strong> — <code>@layer</code> deixa a ordem explícita.</li>
+      <li><strong>Especificidade</strong> — inline &gt; id &gt; classe/atributo/pseudo-classe &gt; elemento.</li>
+      <li><strong>Ordem no código</strong> — a última declaração equivalente ganha.</li>
+    </ol>
+    <table>
+      <thead><tr><th>Seletor</th><th>Especificidade (a,b,c)</th></tr></thead>
+      <tbody>
+        <tr><td><code>h1</code></td><td>0, 0, 1</td></tr>
+        <tr><td><code>.card</code></td><td>0, 1, 0</td></tr>
+        <tr><td><code>#aluno</code></td><td>1, 0, 0</td></tr>
+        <tr><td><code>.nav a:hover</code></td><td>0, 2, 1</td></tr>
+      </tbody>
+    </table>
+    <p>Propriedades como <code>color</code> e <code>font-family</code> herdam. Margin, padding e border não. Use <code>inherit</code>, <code>initial</code>, <code>unset</code> ou <code>revert-layer</code> com intenção.</p>
+
+    <h2 id="seletores">4. Seletores, pseudo-classes e pseudo-elementos</h2>
+    <pre>.card > p { }          /* filho direto */
+.trilha .nivel { }     /* descendente */
+a[href^="https"] { }   /* atributo */
+li:nth-child(2n) { }   /* posição */
+p::first-line { }      /* pseudo-elemento */
+:focus-visible { outline: 2px solid; }</pre>
+    <p>Prefira classes para componentes. IDs para âncoras e JS. Elementos para tipografia de documento. <code>!important</code> só em último caso (overrides de acessibilidade, por exemplo).</p>
+
+    <h2 id="box">5. Box model, display e fluxo</h2>
+    <p>Toda caixa tem <code>content</code>, <code>padding</code>, <code>border</code> e <code>margin</code>. Com <code>box-sizing: border-box</code>, width inclui padding e borda — o modelo previsível do CSS em Folhas.</p>
+    <pre>*, *::before, *::after { box-sizing: border-box; }
+
+.block { display: block; }     /* quebra linha, aceita width */
+.inline { display: inline; }   /* flui no texto */
+.ib { display: inline-block; } /* flui, mas aceita medidas */</pre>
+    <p><code>margin</code> vertical de blocos adjacentes pode colapsar. Flex e Grid não colapsam margin da mesma forma — mais um motivo para layout moderno.</p>
+
+    <h2 id="tipo">6. Cor, unidades e tipografia</h2>
+    <p>Unidades relativas respeitam o leitor: <code>rem</code> a partir do root, <code>em</code> a partir do pai, <code>ch</code> para largura de coluna. <code>px</code> para bordas finas. <code>vw</code> em texto longo pede <code>clamp()</code> para não estourar.</p>
+    <pre>:root { font-size: 100%; }
+h1 {
+  font-size: clamp(2.4rem, 6vw + 1rem, 5.6rem);
+  font-family: Syne, sans-serif;
+  letter-spacing: -0.04em;
+}
+.kicker {
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}</pre>
+    <p>Cores modernas: <code>oklch()</code>, <code>color-mix()</code>, gradientes lineares, radiais e cônicos. Contraste é UX: texto e fundo precisam se ler, não só “ficar bonito”.</p>
+    <pre>color: oklch(0.72 0.12 230);
+background: color-mix(in oklab, #0b1222 62%, transparent);
+background: linear-gradient(125deg, #60a5fa, #a78bfa, #f472d0);</pre>
+
+    <h2 id="flex">7. Flexbox — uma dimensão</h2>
+    <p>O eixo principal segue <code>flex-direction</code>. <code>justify-content</code> alinha nesse eixo; <code>align-items</code> no eixo cruzado. <code>gap</code> substitui a maioria das margins entre irmãos.</p>
+    <pre>.header-acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+}
+.item { flex: 1 1 12rem; }</pre>
+    <p><code>flex: 1 1 auto</code> = cresce, encolhe, base automática. Wrapping transforma uma fileira em várias — ainda é um eixo, só que quebrado.</p>
+
+    <h2 id="grid">8. CSS Grid — duas dimensões</h2>
+    <p>Grid define trilhas (colunas e linhas). <code>fr</code> reparte espaço livre. <code>minmax()</code> e <code>auto-fit</code> criam colunas que cabem sozinhas.</p>
+    <pre>.conceitos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+.aula-shell {
+  display: grid;
+  grid-template-columns: 16rem 1fr 18rem;
+  grid-template-areas: "modulos player aside";
+}</pre>
+    <p>Áreas nomeadas documentam o layout. <code>subgrid</code> (quando o navegador cobre) alinha filhos ao pai. Para cartões numa dimensão, Flex costuma bastar; para página inteira, Grid.</p>
+
+    <h2 id="fluido">9. Responsividade, fluid type e container queries</h2>
+    <p>Mobile-first: o padrão é o estreito; <code>@media (min-width: …)</code> amplia. Container queries olham o pai, não a viewport — úteis em cartões reutilizáveis.</p>
+    <pre>@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+}
+@container (min-width: 28rem) {
+  .card { grid-template-columns: 1fr 1fr; }
+}</pre>
+    <p>Tipografia fluida: <code>clamp(mínimo, preferido, máximo)</code>. Evite <code>vw</code> puro em parágrafos longos — o zoom do usuário e o comprimento de linha sofrem.</p>
+
+    <h2 id="tokens">10. Variáveis CSS, temas e tokens</h2>
+    <p>Custom properties no <code>:root</code> são o design system vivo. Herdam. Mudam com JS (barra de status do CSS em Folhas: <code>--conclusao</code>, <code>--xp-aluno</code>).</p>
+    <pre>:root {
+  --ciano: #5eead4;
+  --gutter: clamp(1rem, 3vw, 2rem);
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn { background: var(--aurora); }
+[data-theme="claro"] { --texto: #12182b; }</pre>
+    <p>Tokens de cor, tipo, espaço e motion. Um nome estável (<code>--raio-pill</code>) vale mais que um hex espalhado em 40 arquivos.</p>
+
+    <h2 id="motion">11. Transições, transforms e animações</h2>
+    <p>Anime propriedades compostas na GPU: <code>transform</code> e <code>opacity</code>. Evite animar <code>width</code>/<code>top</code> em loops. Respeite <code>prefers-reduced-motion</code>.</p>
+    <pre>.carta-3d {
+  transform: perspective(900px) rotateY(-18deg) translateZ(24px);
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.carta-3d:hover { transform: translateZ(42px) rotateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cubo { animation: none; }
+}</pre>
+    <p><code>@keyframes</code> para ciclos (cubo, aurora). Transição para interação (hover, foco). Transform 3D pede <code>perspective</code> no palco e <code>transform-style: preserve-3d</code> no objeto.</p>
+
+    <h2 id="moderno">12. Seletores modernos, :has() e @layer</h2>
+    <p><code>:has()</code> estiliza o pai a partir do filho — o “seletor de pai” que o CSS esperou décadas.</p>
+    <pre>form:has(:invalid:not(:placeholder-shown)) {
+  box-shadow: inset 0 0 0 1px #fb7185;
+}
+.card:has(a:hover) { border-color: var(--ciano); }</pre>
+    <p><code>@layer</code> ordena a cascata: reset, base, layout, componentes, páginas. Utilitários por último. Assim um <code>.card</code> não precisa de especificidade inflada para vencer o reset.</p>
+    <pre>@layer reset, base, layout, components, pages, utilities;
+
+@layer components {
+  .btn { border-radius: 999px; }
+}</pre>
+
+    <h3>Checklist do projeto final</h3>
+    <ul>
+      <li>HTML semântico (um <code>h1</code>, landmarks, skip link).</li>
+      <li>Tokens no <code>:root</code> e tipografia com voz (display, serif, mono).</li>
+      <li>Layout com Flex + Grid, não float.</li>
+      <li>Foco visível, contraste, <code>prefers-reduced-motion</code>.</li>
+      <li>Camadas <code>@layer</code> e componentes previsíveis.</li>
+    </ul>
+
+    <h3>Glossário rápido</h3>
+    <table>
+      <thead><tr><th>Termo</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td>Cascata</td><td>Algoritmo que escolhe a declaração vencedora.</td></tr>
+        <tr><td>Token</td><td>Valor nomeado (cor, espaço, easing) reutilizado.</td></tr>
+        <tr><td>Eixo principal</td><td>Direção do Flex (<code>row</code> ou <code>column</code>).</td></tr>
+        <tr><td>Trilha</td><td>Coluna ou linha no Grid.</td></tr>
+        <tr><td>Container query</td><td>Media query do elemento pai, não da janela.</td></tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <p>© 2026 CSS em Folhas · Material pedagógico. Complementa a sala de aula e os exercícios da Jornada. Especificações oficiais: W3C CSS Snapshot / MDN.</p>
+    </footer>
+  </article>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS em Folhas | Portal de estudos da folha de estilo</title>
+
+  <meta name="description" content="Portal de estudos de CSS: HTML é o esqueleto da página; CSS é a identidade visual. Matrícula, área do aluno, sala de aula com vídeos do iniciante ao avançado, curva de aprendizado e exercícios.">
+  <meta name="keywords" content="CSS, CSS3, curso de CSS, flexbox, grid, tipografia, identidade visual, variáveis CSS, UX, UI">
+  <meta name="author" content="CSS em Folhas">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://css-em-folhas.netlify.app/">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="CSS em Folhas">
+  <meta property="og:description" content="Estude CSS com tokens, tipografia, layout, vídeos e uma área do aluno completa.">
+  <meta property="og:image" content="/assets/logo.svg">
+  <meta name="theme-color" content="#0b1222">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/efeito-3d.css">
+  <link rel="stylesheet" href="/css/estudio.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "CSS em Folhas — Trilha completa",
+    "description": "Do seletor ao projeto final: cascata, layout, tipografia, tokens e identidade visual.",
+    "inLanguage": "pt-BR",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "CSS em Folhas"
+    },
+    "educationalLevel": "Beginner to Advanced",
+    "teaches": "CSS3"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="/index.html">
+      <img src="/assets/logo.svg" width="40" height="40" alt="">
+      <span class="brand-text"><strong>CSS</strong><span>em Folhas</span></span>
+    </a>
+    <nav class="nav-principal" aria-label="Principal">
+      <a href="/pages/matricula.html">Matricular</a>
+      <a href="/pages/aluno.html">Área do aluno</a>
+      <a href="/pages/sala.html">Sala de aula</a>
+      <a href="/pages/jornada.html#exercicios">Exercícios</a>
+      <a href="/docs/produto/css3-referencia.html" download="CSS-em-Folhas-documentacao-CSS3.html" data-download-docs aria-label="Baixar documentação CSS3">Baixar CSS3</a>
+    </nav>
+    <div class="header-acoes">
+      <a class="btn" href="/pages/aluno.html" data-nome-header>Entrar</a>
+    </div>
+  </header>
+  <div class="status-bar" role="status" aria-live="polite" aria-label="Variáveis CSS e progresso">
+    <span class="status-label">:root</span>
+    <div class="status-track" data-status-track></div>
+    <div class="status-aluno" data-status-aluno></div>
+  </div>
+
+  <main id="conteudo">
+    <section class="palco-3d" aria-labelledby="palco" data-palco3d>
+      <div class="secao-cabeca">
+        <div>
+          <p class="kicker">CSS3 · perspective · preserve-3d</p>
+          <h2 id="palco" class="texto-gradiente">A folha ganha volume</h2>
+        </div>
+        <p class="legenda">Cubo, cartas e prismas em transform 3D. Passe o ponteiro: o palco olha para você. Passe sobre as faces para pausar o giro.</p>
+      </div>
+
+      <div class="palco-palco">
+        <div class="cena-cubo" aria-hidden="true">
+          <div class="cubo">
+            <div class="face face-frente">color()</div>
+            <div class="face face-tras">@layer</div>
+            <div class="face face-dir">grid</div>
+            <div class="face face-esq">flex</div>
+            <div class="face face-topo">clamp()</div>
+            <div class="face face-base">:has()</div>
+          </div>
+        </div>
+
+        <div class="leque">
+          <article class="carta-3d">
+            <p class="kicker">profundidade</p>
+            <h3>translateZ</h3>
+            <p>Título, texto e código avançam em eixos diferentes. O hover puxa a carta para perto.</p>
+            <code>transform: translateZ(42px)</code>
+          </article>
+          <article class="carta-3d">
+            <p class="kicker">eixo</p>
+            <h3>rotateY</h3>
+            <p>O leque abre em perspectiva. Magenta no centro ancora o olhar; as laterais conversam em 18°.</p>
+            <code>rotateY(-18deg)</code>
+          </article>
+          <article class="carta-3d">
+            <p class="kicker">luz</p>
+            <h3>gradiente</h3>
+            <p>Ciano, ouro e coral no mesmo palco — a identidade do CSS em Folhas em volume, não só em plano.</p>
+            <code>linear-gradient(160deg)</code>
+          </article>
+        </div>
+      </div>
+
+      <div class="prismas">
+        <a class="prisma" href="/pages/sala.html">
+          Iniciante
+          <small>Box model em 3 eixos</small>
+        </a>
+        <a class="prisma" href="/pages/sala.html?aula=css-06">
+          Intermediário
+          <small>Flex, Grid, tokens</small>
+        </a>
+        <a class="prisma" href="/pages/sala.html?aula=css-10">
+          Avançado
+          <small>Motion e :has()</small>
+        </a>
+        <a class="prisma" href="/pages/jornada.html">
+          Prática
+          <small>Curva + laboratório</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="papéis">
+      <div class="secao-cabeca">
+        <div>
+          <p class="kicker">Conceito-base</p>
+          <h2 id="papéis">Dois ofícios, uma página</h2>
+        </div>
+        <p class="legenda">Separar estrutura e apresentação é a primeira estratégia de desenvolvimento sustentável.</p>
+      </div>
+      <div class="conceitos">
+        <article class="card">
+          <p class="kicker">HTML</p>
+          <h3>O esqueleto</h3>
+          <p>Marca o significado: títulos, parágrafos, listas, links, formulários e mídia. O navegador precisa dessa árvore para acessibilidade e SEO.</p>
+          <code>&lt;h1&gt;CSS em Folhas&lt;/h1&gt;</code>
+        </article>
+        <article class="card">
+          <p class="kicker">CSS</p>
+          <h3>A apresentação</h3>
+          <p>Pinta, alinha, anima e responde ao espaço. Gradientes, tipografia, grid e variáveis deste portal são CSS puro.</p>
+          <code>h1 { letter-spacing: -0.04em }</code>
+        </article>
+        <article class="card">
+          <p class="kicker">UX · UI</p>
+          <h3>A experiência</h3>
+          <p>Contraste, foco visível, skip link, hierarquia e barra de status: o estilo serve a leitura e a navegação, não o contrário.</p>
+          <code>:focus-visible { outline: 2px solid }</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="hero">
+      <div>
+        <p class="kicker">Portal de estudos · CSS3</p>
+        <h1>CSS não é o esqueleto.<br><span class="texto-gradiente">É a voz visual da web.</span></h1>
+        <p class="legenda mt-4">HTML organiza textos, imagens e links — o esqueleto. CSS decide como o navegador os exibe: cor, ritmo, hierarquia, layout e identidade.</p>
+        <p class="mt-4">Aqui você matricula, acompanha a evolução, assiste à trilha do iniciante à conclusão e pratica com exercícios ligados a cada conceito.</p>
+        <div class="chip-row mt-5">
+          <a class="btn" href="/pages/matricula.html">Fazer matrícula</a>
+          <a class="btn btn-ghost" href="/pages/sala.html">Abrir sala de aula</a>
+        </div>
+      </div>
+      <div class="orbe" aria-hidden="true">
+        <article class="folha-demo">
+          <p class="kicker" style="color:#0f766e">stylesheet</p>
+          <h3>folha.css</h3>
+          <p class="legenda">Tipografia com Fraunces, kicker em JetBrains Mono, display em Syne.</p>
+          <div class="barra-exemplo"></div>
+          <div class="chip-row">
+            <span class="chip">flex</span>
+            <span class="chip">grid</span>
+            <span class="chip">@layer</span>
+            <span class="chip">clamp()</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cubo-atmosfera" aria-labelledby="atmosfera" data-atmosfera>
+      <div class="cubo-fundo" aria-hidden="true">
+        <div class="cubo cubo-eco cubo-eco-a">
+          <div class="face face-frente">color()</div>
+          <div class="face face-tras">@layer</div>
+          <div class="face face-dir">grid</div>
+          <div class="face face-esq">flex</div>
+          <div class="face face-topo">clamp()</div>
+          <div class="face face-base">:has()</div>
+        </div>
+        <div class="cubo cubo-eco cubo-eco-b">
+          <div class="face face-frente">color()</div>
+          <div class="face face-tras">@layer</div>
+          <div class="face face-dir">grid</div>
+          <div class="face face-esq">flex</div>
+          <div class="face face-topo">clamp()</div>
+          <div class="face face-base">:has()</div>
+        </div>
+        <div class="cubo cubo-eco cubo-eco-c">
+          <div class="face face-frente">color()</div>
+          <div class="face face-tras">@layer</div>
+          <div class="face face-dir">grid</div>
+          <div class="face face-esq">flex</div>
+          <div class="face face-topo">clamp()</div>
+          <div class="face face-base">:has()</div>
+        </div>
+      </div>
+
+      <div class="cubo-atmosfera-conteudo">
+        <div>
+          <p class="kicker">CSS3 · @property · view() · blend</p>
+          <h2 id="atmosfera" class="texto-gradiente">O cubo gira atrás da folha</h2>
+          <p class="legenda">Laboratório da camada: o fundo continua transparente. Os cubos ofuscados misturam-se ao aurora. O núcleo à frente responde ao ponteiro. As técnicas vêm de um JSON.</p>
+          <div class="tecnica-chips" data-tecnica-chips role="group" aria-label="Técnicas CSS3 da atmosfera"></div>
+        </div>
+
+        <div class="cubo-nucleo-cena" aria-hidden="true">
+          <div class="cubo cubo-nucleo" data-cubo-nucleo>
+            <div class="face face-frente">blur()</div>
+            <div class="face face-tras">opacity</div>
+            <div class="face face-dir">saturate()</div>
+            <div class="face face-esq">layer</div>
+            <div class="face face-topo">fundo</div>
+            <div class="face face-base">canvas</div>
+          </div>
+        </div>
+
+        <article class="card">
+          <p class="kicker" data-tecnica-kicker>Ofuscar a camada</p>
+          <h3 data-tecnica-titulo>filter: blur()</h3>
+          <p data-tecnica-resumo>O cubo de fundo não precisa ser nítido. blur() + opacity transforma preserve-3d em atmosfera, sem pintar a seção de opaco.</p>
+          <code data-tecnica-amostra>filter: blur(var(--eco-blur)); opacity: .42</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="trilha">
+      <div class="secao-cabeca">
+        <div>
+          <p class="kicker">Percurso</p>
+          <h2 id="trilha">Do seletor à identidade visual</h2>
+        </div>
+      </div>
+      <div class="trilha-niveis">
+        <article class="card nivel-card">
+          <p class="kicker">Nível 01</p>
+          <h3>Iniciante</h3>
+          <p>Cascata, seletores, box model, cor e tipo. Entender o fluxo antes de decorar propriedades.</p>
+        </article>
+        <article class="card nivel-card">
+          <p class="kicker">Nível 02</p>
+          <h3>Intermediário</h3>
+          <p>Flexbox, Grid, responsividade, tokens e container queries. Layout como sistema.</p>
+        </article>
+        <article class="card nivel-card">
+          <p class="kicker">Nível 03</p>
+          <h3>Avançado → conclusão</h3>
+          <p>Motion, :has(), @layer, arquitetura e um projeto com UX/UI de portal real.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao bento" aria-labelledby="recursos">
+      <article class="card span-7">
+        <p class="kicker">Área do aluno</p>
+        <h2 id="recursos">Tudo o que a matrícula alimenta</h2>
+        <p>Perfil, endereço, trilha, protocolo, XP, conquistas e anotações — persistidos neste navegador para você estudar sem backend.</p>
+        <a class="btn mt-4" href="/pages/aluno.html">Ver área do aluno</a>
+      </article>
+      <article class="card span-5">
+        <p class="kicker">Jornada</p>
+        <h3>Curva + laboratório</h3>
+        <p>Acompanhe a conclusão em uma curva SVG, resolva quizzes e experimente declarações CSS ao vivo.</p>
+        <a class="btn btn-ghost mt-4" href="/pages/jornada.html">Abrir jornada</a>
+      </article>
+    </section>
+
+    <section class="secao estudio-vivo" aria-labelledby="estudio">
+      <div class="secao-cabeca">
+        <div>
+          <p class="kicker">compilador · live preview</p>
+          <h2 id="estudio">O log pinta a folha</h2>
+        </div>
+        <p class="legenda">À esquerda, o compilador gera CSS. À direita, a arte responde ao vivo. Loop percorre a galeria; Random escolhe a próxima peça.</p>
+      </div>
+
+      <div class="estudio-controles" role="toolbar" aria-label="Modo e galeria do compilador">
+        <div class="grupo-ctrl">
+          <span class="kicker">Modo</span>
+          <div class="ctrl-botoes">
+            <button type="button" class="ctrl-btn" data-modo="loop" aria-pressed="true">Loop</button>
+            <button type="button" class="ctrl-btn" data-modo="random" aria-pressed="false">Random</button>
+          </div>
+        </div>
+        <div class="grupo-ctrl">
+          <span class="kicker">Galeria</span>
+          <div class="ctrl-botoes">
+            <button type="button" class="ctrl-btn" data-arte-id="folha" aria-pressed="true">Folha</button>
+            <button type="button" class="ctrl-btn" data-arte-id="aurora" aria-pressed="false">Aurora</button>
+            <button type="button" class="ctrl-btn" data-arte-id="neon" aria-pressed="false">Neon</button>
+            <button type="button" class="ctrl-btn" data-arte-id="onda" aria-pressed="false">Onda</button>
+            <button type="button" class="ctrl-btn" data-arte-id="vitral" aria-pressed="false">Vitral</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="estudio-telas">
+        <article class="janela" aria-label="Log de código CSS">
+          <header class="janela-barra">
+            <span class="bolinhas" aria-hidden="true"><i></i><i></i><i></i></span>
+            <strong data-log-arquivo>folha.css — log</strong>
+            <span class="janela-meta" data-live-meta data-estado="compilando">live</span>
+          </header>
+          <div class="janela-corpo">
+            <pre class="log-css" data-log tabindex="0"></pre>
+          </div>
+        </article>
+
+        <article class="janela" aria-label="Pré-visualização da arte CSS3">
+          <header class="janela-barra">
+            <span class="bolinhas" aria-hidden="true"><i></i><i></i><i></i></span>
+            <strong>preview — arte CSS3</strong>
+            <span class="janela-meta" data-preview-meta>Folha</span>
+          </header>
+          <div class="janela-corpo">
+            <div class="arte" data-arte data-tema="folha">
+              <div class="arte-ceu"></div>
+              <div class="arte-disco"></div>
+              <div class="arte-petalas" aria-hidden="true">
+                <span style="--i: 0"></span>
+                <span style="--i: 1"></span>
+                <span style="--i: 2"></span>
+                <span style="--i: 3"></span>
+                <span style="--i: 4"></span>
+                <span style="--i: 5"></span>
+              </div>
+              <div class="arte-anel"></div>
+              <div class="arte-orbe"></div>
+              <div class="arte-faixa"></div>
+              <div class="arte-spark"></div>
+              <p class="arte-titulo" data-arte-titulo>CSS3</p>
+              <span class="arte-legenda" data-arte-legenda>folha viva · conic-gradient</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="kicker">CSS</p>
+        <p>CSS em Folhas. Tokens, tipografia e layout ensinados pelo próprio código da interface.</p>
+      </div>
+      <div>
+        <h2>Estudar</h2>
+        <ul>
+          <li><a href="/pages/sala.html">Sala de aula</a></li>
+          <li><a href="/pages/jornada.html#exercicios">Exercícios</a></li>
+          <li><a href="/docs/produto/css3-referencia.html" download="CSS-em-Folhas-documentacao-CSS3.html" data-download-docs aria-label="Baixar documentação CSS3">Baixar CSS3</a></li>
+          <li><a href="/pages/aluno.html">Painel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Matrícula</h2>
+        <ul>
+          <li><a href="/pages/matricula.html">Formulário completo</a></li>
+          <li><a href="/pages/matricula.html#lgpd">Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Técnica</h2>
+        <ul>
+          <li>CSS custom properties</li>
+          <li>Grid · Flex · @layer</li>
+          <li>SEO semântico</li>
+        </ul>
+      </div>
+    </div>
+    <p class="colophon">© 2026 CSS em Folhas · Conteúdo pedagógico. Vídeos incorporados do YouTube pertencem aos respectivos autores.</p>
+  </footer>
+  <script src="/js/core/data.js"></script>
+  <script src="/js/core/app.js"></script>
+  <script src="/js/features/estudio.js"></script>
+  <script src="/js/features/palco3d.js"></script>
+  <script src="/js/features/atmosfera.js"></script>
+</body>
+</html>

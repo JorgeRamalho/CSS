@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sala de aula — CSS em Folhas | Vídeos de CSS do iniciante ao avançado</title>
+  <meta name="description" content="Sala de aula do CSS em Folhas com 12 aulas em vídeo: fundamentos, Flexbox, Grid, tokens, animações, :has(), @layer e projeto final de CSS.">
+  <link rel="canonical" href="https://css-em-folhas.netlify.app/pages/sala.html">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0b1222">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="/index.html">
+      <img src="/assets/logo.svg" width="40" height="40" alt="">
+      <span class="brand-text"><strong>CSS</strong><span>em Folhas</span></span>
+    </a>
+    <nav class="nav-principal" aria-label="Principal">
+      <a href="/pages/matricula.html">Matricular</a>
+      <a href="/pages/aluno.html">Área do aluno</a>
+      <a href="/pages/sala.html">Sala de aula</a>
+      <a href="/pages/jornada.html#exercicios">Exercícios</a>
+      <a href="/docs/produto/css3-referencia.html" download="CSS-em-Folhas-documentacao-CSS3.html" data-download-docs aria-label="Baixar documentação CSS3">Baixar CSS3</a>
+    </nav>
+    <div class="header-acoes">
+      <a class="btn" href="/pages/aluno.html" data-nome-header>Entrar</a>
+    </div>
+  </header>
+  <div class="status-bar" role="status" aria-live="polite" aria-label="Variáveis CSS e progresso">
+    <span class="status-label">:root</span>
+    <div class="status-track" data-status-track></div>
+    <div class="status-aluno" data-status-aluno></div>
+  </div>
+
+  <main id="conteudo">
+    <p class="kicker">Campus · sala</p>
+    <h1>Sala de aula</h1>
+    <p class="legenda mt-2">Iniciante → conclusão. Concluir a aula atualiza --conclusao na barra de status.</p>
+
+    <div class="aula-shell mt-5">
+      <nav class="modulo-lista" data-modulos aria-label="Módulos do curso"></nav>
+
+      <section>
+        <div class="player">
+          <iframe data-player title="Player da aula de CSS" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="card mt-4">
+          <p class="kicker" data-aula-meta></p>
+          <h2 data-aula-titulo class="mt-2">Aula</h2>
+          <p data-aula-resumo class="mt-2"></p>
+          <button class="btn mt-4" type="button" data-concluir>Concluir aula e avançar</button>
+        </div>
+      </section>
+
+      <aside class="card">
+        <p class="kicker">Como assistir</p>
+        <h3 class="mt-2">Estratégia</h3>
+        <ol class="mt-4">
+          <li>Assista ao recorte do tema.</li>
+          <li>Releia o resumo ao lado.</li>
+          <li>Conclua a aula — a barra de status atualiza --conclusao.</li>
+          <li>Pratique o mesmo tema na Jornada.</li>
+        </ol>
+        <p class="legenda mt-4">Vídeos públicos de referência (freeCodeCamp, Traversy e afins). O CSS em Folhas organiza a trilha; os direitos permanecem com os autores.</p>
+        <a class="btn btn-ghost mt-4" href="/pages/jornada.html">Ir aos exercícios desta trilha</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="kicker">CSS</p>
+        <p>Grade do iniciante ao projeto final.</p>
+      </div>
+      <div>
+        <h2>Aluno</h2>
+        <ul><li><a href="/pages/aluno.html">Painel</a></li></ul>
+      </div>
+      <div>
+        <h2>Prática</h2>
+        <ul><li><a href="/pages/jornada.html">Jornada</a></li></ul>
+      </div>
+      <div>
+        <h2>Portal</h2>
+        <ul><li><a href="/index.html">Início</a></li></ul>
+      </div>
+    </div>
+    <p class="colophon">© 2026 CSS em Folhas</p>
+  </footer>
+  <script src="/js/core/data.js"></script>
+  <script src="/js/core/app.js"></script>
+  <script src="/js/pages/sala.js"></script>
+</body>
+</html>

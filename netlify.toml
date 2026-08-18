@@ -1,0 +1,55 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=()"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# URLs antigas da raiz continuam válidas após a reorganização.
+[[redirects]]
+  from = "/matricula.html"
+  to = "/pages/matricula.html"
+  status = 301
+
+[[redirects]]
+  from = "/aluno.html"
+  to = "/pages/aluno.html"
+  status = 301
+
+[[redirects]]
+  from = "/sala.html"
+  to = "/pages/sala.html"
+  status = 301
+
+[[redirects]]
+  from = "/jornada.html"
+  to = "/pages/jornada.html"
+  status = 301
+
+[[redirects]]
+  from = "/docs/css3-referencia.html"
+  to = "/docs/produto/css3-referencia.html"
+  status = 301

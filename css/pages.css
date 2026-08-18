@@ -1,0 +1,133 @@
+@layer pages {
+  body:has(.aula-shell) main {
+    padding-top: var(--espaco-4);
+  }
+
+  body:has(.aula-shell) h1 {
+    font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  }
+  .conceitos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espaco-4);
+  }
+
+  .conceito code {
+    display: block;
+    margin-top: 0.7rem;
+    color: var(--ciano);
+  }
+
+  .trilha-niveis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espaco-4);
+    counter-reset: nivel;
+  }
+
+  .nivel-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nivel-card::after {
+    counter-increment: nivel;
+    content: counter(nivel, decimal-leading-zero);
+    position: absolute;
+    right: 0.6rem;
+    bottom: -0.6rem;
+    font-family: var(--fonte-display);
+    font-size: 4rem;
+    opacity: 0.16;
+  }
+
+  .jornada-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--espaco-5);
+  }
+
+  .atividade {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .atividade header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .lab {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaco-4);
+  }
+
+  .lab textarea {
+    min-height: 16rem;
+    resize: vertical;
+    font-family: var(--fonte-codigo);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .lab-preview {
+    min-height: 16rem;
+    border-radius: var(--raio-m);
+    border: 1px dashed var(--linha-forte);
+    padding: 1rem;
+    background: var(--papel);
+    color: var(--texto-escuro);
+  }
+
+  .dados-dl {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 0.45rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .dados-dl dt {
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: var(--espaco-4);
+  }
+
+  .tabs button {
+    border: 0;
+    background: transparent;
+    color: var(--texto-suave);
+    padding: 0.45rem 0.8rem;
+    border-radius: var(--raio-pill);
+    cursor: pointer;
+  }
+
+  .tabs button[aria-selected="true"] {
+    background: color-mix(in oklab, white 10%, transparent);
+    color: var(--texto);
+  }
+
+  .painel[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .conceitos,
+    .trilha-niveis,
+    .jornada-layout,
+    .lab,
+    .dados-dl {
+      grid-template-columns: 1fr;
+    }
+  }
+}

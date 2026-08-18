@@ -1,0 +1,83 @@
+{
+  "titulo": "Laboratório da atmosfera 3D",
+  "tecnicas": [
+    {
+      "id": "blur",
+      "nome": "filter: blur()",
+      "kicker": "Ofuscar a camada",
+      "resumo": "O cubo de fundo não precisa ser nítido. blur() + opacity transforma preserve-3d em atmosfera, sem pintar a seção de opaco.",
+      "amostra": "filter: blur(var(--eco-blur)); opacity: .42",
+      "faces": ["blur()", "opacity", "saturate()", "layer", "fundo", "canvas"],
+      "vars": {
+        "--eco-blur": "22px",
+        "--eco-mix": "plus-lighter",
+        "--eco-opacidade": "0.42"
+      }
+    },
+    {
+      "id": "blend",
+      "nome": "mix-blend-mode",
+      "kicker": "Luz sobre o degradê",
+      "resumo": "plus-lighter e screen misturam as faces com o aurora do body. O cubo deixa de ser um recorte e passa a iluminar o canvas.",
+      "amostra": "mix-blend-mode: plus-lighter",
+      "faces": ["screen", "plus-lighter", "overlay", "hue", "color-dodge", "soft-light"],
+      "vars": {
+        "--eco-blur": "18px",
+        "--eco-mix": "screen",
+        "--eco-opacidade": "0.55"
+      }
+    },
+    {
+      "id": "property",
+      "nome": "@property",
+      "kicker": "Ângulo interpolável",
+      "resumo": "@property registra --eco-giro como <angle>. O navegador interpola o giro em vez de saltar entre strings de transform.",
+      "amostra": "@property --eco-giro { syntax: \"<angle>\" }",
+      "faces": ["@property", "<angle>", "inherits", "syntax", "initial", "giro"],
+      "vars": {
+        "--eco-blur": "14px",
+        "--eco-mix": "plus-lighter",
+        "--eco-opacidade": "0.48"
+      }
+    },
+    {
+      "id": "timeline",
+      "nome": "animation-timeline: view()",
+      "kicker": "Scroll como tempo",
+      "resumo": "A intensidade da atmosfera segue a entrada da seção na viewport. O scroll vira timeline — sem listener de scroll.",
+      "amostra": "animation-timeline: view(); animation-range: entry 0% cover 45%",
+      "faces": ["view()", "entry", "cover", "range", "scroll", "--visao"],
+      "vars": {
+        "--eco-blur": "26px",
+        "--eco-mix": "plus-lighter",
+        "--eco-opacidade": "0.38"
+      }
+    },
+    {
+      "id": "vidro",
+      "nome": "backdrop-filter",
+      "kicker": "Texto no vidro",
+      "resumo": "O card da frente usa backdrop-filter. Ele embaça o cubo que passa atrás, sem fundo sólido na seção.",
+      "amostra": "backdrop-filter: blur(18px) saturate(1.35)",
+      "faces": ["backdrop", "blur", "saturate", "vidro", "z-index", "frente"],
+      "vars": {
+        "--eco-blur": "10px",
+        "--eco-mix": "normal",
+        "--eco-opacidade": "0.58"
+      }
+    },
+    {
+      "id": "oklab",
+      "nome": "color-mix() · oklab",
+      "kicker": "Cor perceptiva",
+      "resumo": "As faces misturam tokens em oklab. A cor permanece estável em degradês e blends — identidade CSS em Folhas, não RGB quebrado.",
+      "amostra": "color-mix(in oklab, var(--ciano) 40%, transparent)",
+      "faces": ["oklab", "color-mix", "--ciano", "--magenta", "token", "mix"],
+      "vars": {
+        "--eco-blur": "20px",
+        "--eco-mix": "overlay",
+        "--eco-opacidade": "0.5"
+      }
+    }
+  ]
+}

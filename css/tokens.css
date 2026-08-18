@@ -1,0 +1,126 @@
+/* ==========================================================================
+   CSS em Folhas — Design tokens (variáveis CSS custom properties)
+   Exibidas ao vivo na barra de status. Editar aqui muda o portal inteiro.
+   ========================================================================== */
+
+@property --angulo-aurora {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 125deg;
+}
+
+:root {
+  /* Marca */
+  --marca: "CSS";
+  --marca-legenda: "em Folhas";
+
+  /* Cores — identidade visual */
+  --ink-950: #070b16;
+  --ink-900: #0b1222;
+  --ink-800: #121a32;
+  --ink-700: #1a2544;
+  --ink-600: #243056;
+  --papel: #f4efe4;
+  --papel-suave: #ebe4d4;
+  --linha: color-mix(in oklab, #93c5fd 22%, transparent);
+  --linha-forte: color-mix(in oklab, #c4b5fd 38%, transparent);
+
+  --azul: #60a5fa;
+  --azul-profundo: #2563eb;
+  --ciano: #5eead4;
+  --violeta: #a78bfa;
+  --magenta: #f472d0;
+  --coral: #fb7185;
+  --ouro: #e4c36a;
+  --lima: #bef264;
+
+  --texto: #e8eefc;
+  --texto-suave: #9aa8c7;
+  --texto-escuro: #12182b;
+  --texto-kicker: var(--ciano);
+
+  /* Superfícies */
+  --superficie: color-mix(in oklab, var(--ink-800) 78%, white 6%);
+  --superficie-2: color-mix(in oklab, var(--ink-700) 70%, #312e81 30%);
+  --vidro: color-mix(in oklab, #0b1222 62%, transparent);
+  --vidro-borda: color-mix(in oklab, white 14%, transparent);
+
+  /* Gradientes */
+  --aurora: linear-gradient(var(--angulo-aurora), var(--azul) 0%, var(--violeta) 42%, var(--magenta) 78%, var(--coral) 100%);
+  --aurora-suave: linear-gradient(160deg, color-mix(in oklab, var(--azul) 35%, transparent), color-mix(in oklab, var(--magenta) 22%, transparent));
+  --conico: conic-gradient(from 210deg, var(--azul), var(--ciano), var(--violeta), var(--magenta), var(--coral), var(--azul));
+  --radial-orb: radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--ciano) 40%, transparent), transparent 55%);
+  --papel-gradiente: linear-gradient(180deg, var(--papel) 0%, var(--papel-suave) 100%);
+
+  /* Tipografia */
+  --fonte-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
+  --fonte-ui: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --fonte-serif: "Fraunces", "Times New Roman", serif;
+  --fonte-codigo: "JetBrains Mono", "Cascadia Code", ui-monospace, monospace;
+
+  --peso-regular: 400;
+  --peso-medio: 500;
+  --peso-semi: 600;
+  --peso-extra: 800;
+
+  --tamanho-kicker: 0.72rem;
+  --tamanho-legenda: 0.8rem;
+  --tamanho-corpo: 1.05rem;
+  --tamanho-titulo: clamp(1.6rem, 2vw + 1rem, 2.6rem);
+  --tamanho-display: clamp(2.4rem, 6vw + 1rem, 5.6rem);
+  --leading-corpo: 1.65;
+  --leading-titulo: 1.05;
+  --tracking-kicker: 0.22em;
+  --tracking-display: -0.04em;
+
+  /* Espaço e forma */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 0.75rem;
+  --espaco-4: 1rem;
+  --espaco-5: 1.5rem;
+  --espaco-6: 2rem;
+  --espaco-7: 3rem;
+  --espaco-8: 5rem;
+  --gutter: clamp(1rem, 3vw, 2rem);
+  --largura: 1180px;
+  --header-altura: 4.25rem;
+  --status-altura: 2.75rem;
+
+  --raio-s: 0.5rem;
+  --raio-m: 0.9rem;
+  --raio-l: 1.4rem;
+  --raio-pill: 999px;
+
+  --sombra-soft: 0 10px 40px color-mix(in oklab, #020617 55%, transparent);
+  --sombra-glow: 0 0 40px color-mix(in oklab, var(--violeta) 28%, transparent);
+  --sombra-texto: 0 2px 24px color-mix(in oklab, var(--azul) 40%, transparent);
+
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --duracao: 280ms;
+
+  /* Variáveis de aluno (atualizadas via JS) */
+  --xp-aluno: 0;
+  --nivel-aluno: 1;
+  --conclusao: 0%;
+  --modulos-feitos: 0;
+  --aulas-feitas: 0;
+  --streak-aluno: 0;
+  --trilha-aluno: "visitante";
+
+  color-scheme: dark;
+}
+
+[data-theme="claro"] {
+  --ink-950: #f6f1e6;
+  --ink-900: #efe8d8;
+  --ink-800: #e7deca;
+  --ink-700: #ddd2b8;
+  --ink-600: #d2c4a6;
+  --texto: #12182b;
+  --texto-suave: #4b556f;
+  --superficie: color-mix(in oklab, white 70%, var(--papel));
+  --vidro: color-mix(in oklab, white 62%, transparent);
+  --linha: color-mix(in oklab, #1e3a8a 16%, transparent);
+  color-scheme: light;
+}

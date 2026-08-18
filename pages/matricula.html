@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matrícula — CSS em Folhas</title>
+  <meta name="description" content="Formulário completo de cadastro e matrícula na trilha do CSS em Folhas: dados pessoais, endereço, escolaridade, acessibilidade e termos LGPD.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://css-em-folhas.netlify.app/pages/matricula.html">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <meta property="og:title" content="Matrícula — CSS em Folhas">
+  <meta property="og:description" content="Cadastre-se no CSS em Folhas com todos os dados de matrícula.">
+  <meta name="theme-color" content="#0b1222">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="/index.html">
+      <img src="/assets/logo.svg" width="40" height="40" alt="">
+      <span class="brand-text"><strong>CSS</strong><span>em Folhas</span></span>
+    </a>
+    <nav class="nav-principal" aria-label="Principal">
+      <a href="/pages/matricula.html">Matricular</a>
+      <a href="/pages/aluno.html">Área do aluno</a>
+      <a href="/pages/sala.html">Sala de aula</a>
+      <a href="/pages/jornada.html#exercicios">Exercícios</a>
+      <a href="/docs/produto/css3-referencia.html" download="CSS-em-Folhas-documentacao-CSS3.html" data-download-docs aria-label="Baixar documentação CSS3">Baixar CSS3</a>
+    </nav>
+    <div class="header-acoes">
+      <a class="btn" href="/pages/aluno.html" data-nome-header>Entrar</a>
+    </div>
+  </header>
+  <div class="status-bar" role="status" aria-live="polite" aria-label="Variáveis CSS e progresso">
+    <span class="status-label">:root</span>
+    <div class="status-track" data-status-track></div>
+    <div class="status-aluno" data-status-aluno></div>
+  </div>
+
+  <main id="conteudo">
+    <p class="kicker">Cadastro · matrícula</p>
+    <h1 class="texto-gradiente">Ficha do aluno</h1>
+    <p class="legenda mt-2">Todos os campos necessários para matrícula em curso livre. Os dados ficam só neste navegador — não há envio a um servidor.</p>
+
+    <form id="form-matricula" class="card card-papel mt-5" novalidate>
+      <fieldset class="grupo-form">
+        <legend class="sr-only">Identificação</legend>
+        <h2>1. Identificação</h2>
+        <div class="form-grid">
+          <div class="campo span-2">
+            <label for="nomeCompleto">Nome completo</label>
+            <input id="nomeCompleto" name="nomeCompleto" type="text" autocomplete="name" required minlength="5" placeholder="Como no documento">
+          </div>
+          <div class="campo">
+            <label for="nomeSocial">Nome social</label>
+            <input id="nomeSocial" name="nomeSocial" type="text" placeholder="Opcional">
+            <small>Usado na área do aluno e nos certificados internos.</small>
+          </div>
+          <div class="campo">
+            <label for="dataNascimento">Data de nascimento</label>
+            <input id="dataNascimento" name="dataNascimento" type="date" required>
+          </div>
+          <div class="campo">
+            <label for="cpf">CPF</label>
+            <input id="cpf" name="cpf" type="text" inputmode="numeric" required pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" placeholder="000.000.000-00" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="rg">RG / documento</label>
+            <input id="rg" name="rg" type="text" required placeholder="Número e órgão">
+          </div>
+          <div class="campo">
+            <label for="genero">Gênero</label>
+            <select id="genero" name="genero" required>
+              <option value="">Selecione</option>
+              <option>Mulher</option>
+              <option>Homem</option>
+              <option>Não-binário</option>
+              <option>Prefiro não informar</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="estadoCivil">Estado civil</label>
+            <select id="estadoCivil" name="estadoCivil" required>
+              <option value="">Selecione</option>
+              <option>Solteiro(a)</option>
+              <option>Casado(a)</option>
+              <option>União estável</option>
+              <option>Divorciado(a)</option>
+              <option>Viúvo(a)</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="nacionalidade">Nacionalidade</label>
+            <input id="nacionalidade" name="nacionalidade" type="text" required value="Brasileira">
+          </div>
+          <div class="campo">
+            <label for="naturalidade">Naturalidade (cidade/UF)</label>
+            <input id="naturalidade" name="naturalidade" type="text" required placeholder="São Paulo / SP">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="grupo-form">
+        <h2>2. Contato e acesso</h2>
+        <div class="form-grid">
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="campo">
+            <label for="email2">Confirmar e-mail</label>
+            <input id="email2" name="email2" type="email" required autocomplete="email">
+          </div>
+          <div class="campo">
+            <label for="telefone">Telefone residencial</label>
+            <input id="telefone" name="telefone" type="tel" autocomplete="tel">
+          </div>
+          <div class="campo">
+            <label for="celular">Celular / WhatsApp</label>
+            <input id="celular" name="celular" type="tel" required placeholder="(11) 90000-0000" autocomplete="tel">
+          </div>
+          <div class="campo">
+            <label for="senha">Senha de acesso</label>
+            <input id="senha" name="senha" type="password" required minlength="8" autocomplete="new-password">
+            <small>Mínimo 8 caracteres. Guardada só na sessão do formulário, não persistida.</small>
+          </div>
+          <div class="campo">
+            <label for="senha2">Confirmar senha</label>
+            <input id="senha2" name="senha2" type="password" required minlength="8" autocomplete="new-password">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="grupo-form">
+        <h2>3. Endereço</h2>
+        <div class="form-grid">
+          <div class="campo">
+            <label for="cep">CEP</label>
+            <input id="cep" name="cep" type="text" required inputmode="numeric" placeholder="00000-000" autocomplete="postal-code">
+            <small>Ao sair do campo, buscamos logradouro via ViaCEP.</small>
+          </div>
+          <div class="campo span-2">
+            <label for="logradouro">Logradouro</label>
+            <input id="logradouro" name="logradouro" type="text" required autocomplete="street-address">
+          </div>
+          <div class="campo">
+            <label for="numero">Número</label>
+            <input id="numero" name="numero" type="text" required>
+          </div>
+          <div class="campo">
+            <label for="complemento">Complemento</label>
+            <input id="complemento" name="complemento" type="text" placeholder="Apto, bloco">
+          </div>
+          <div class="campo">
+            <label for="bairro">Bairro</label>
+            <input id="bairro" name="bairro" type="text" required>
+          </div>
+          <div class="campo">
+            <label for="cidade">Cidade</label>
+            <input id="cidade" name="cidade" type="text" required>
+          </div>
+          <div class="campo">
+            <label for="uf">UF</label>
+            <select id="uf" name="uf" required>
+              <option value="">UF</option>
+              <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+              <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+              <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+              <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+              <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+              <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+              <option>SP</option><option>SE</option><option>TO</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="grupo-form">
+        <h2>4. Formação e matrícula pedagógica</h2>
+        <div class="form-grid">
+          <div class="campo">
+            <label for="escolaridade">Escolaridade</label>
+            <select id="escolaridade" name="escolaridade" required>
+              <option value="">Selecione</option>
+              <option>Ensino fundamental</option>
+              <option>Ensino médio</option>
+              <option>Técnico</option>
+              <option>Graduação em andamento</option>
+              <option>Graduação concluída</option>
+              <option>Pós-graduação</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="instituicao">Instituição anterior</label>
+            <input id="instituicao" name="instituicao" type="text" placeholder="Escola ou faculdade">
+          </div>
+          <div class="campo">
+            <label for="profissao">Ocupação</label>
+            <input id="profissao" name="profissao" type="text">
+          </div>
+          <div class="campo">
+            <label for="experiencia">Experiência com front-end</label>
+            <select id="experiencia" name="experiencia" required>
+              <option value="">Selecione</option>
+              <option>Nenhuma</option>
+              <option>Já usei HTML</option>
+              <option>CSS básico</option>
+              <option>Já trabalho com interfaces</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="trilha">Trilha desejada</label>
+            <select id="trilha" name="trilha" required>
+              <option value="">Selecione</option>
+              <option>Iniciante</option>
+              <option>Intermediário</option>
+              <option>Avançado</option>
+              <option>Trilha completa</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="turno">Turno de estudo</label>
+            <select id="turno" name="turno" required>
+              <option value="">Selecione</option>
+              <option>Manhã</option>
+              <option>Tarde</option>
+              <option>Noite</option>
+              <option>Fins de semana</option>
+              <option>Livre / assíncrono</option>
+            </select>
+          </div>
+          <div class="campo span-2">
+            <label for="comoConheceu">Como conheceu o CSS em Folhas</label>
+            <select id="comoConheceu" name="comoConheceu" required>
+              <option value="">Selecione</option>
+              <option>Busca (SEO / Google)</option>
+              <option>Indicação</option>
+              <option>Redes sociais</option>
+              <option>Professor</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="campo span-2">
+            <label for="motivacao">Motivação para estudar CSS</label>
+            <textarea id="motivacao" name="motivacao" rows="3" required maxlength="500" placeholder="O que você quer construir com estilo?"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="grupo-form">
+        <h2>5. Acessibilidade e responsável</h2>
+        <div class="form-grid">
+          <div class="campo span-2">
+            <label for="acessibilidade">Necessidades de acessibilidade</label>
+            <textarea id="acessibilidade" name="acessibilidade" rows="2" placeholder="Ex.: legendas, alto contraste, tempo extra nos quizzes"></textarea>
+          </div>
+          <div class="campo">
+            <label for="responsavelNome">Responsável (se menor de 18)</label>
+            <input id="responsavelNome" name="responsavelNome" type="text">
+          </div>
+          <div class="campo">
+            <label for="responsavelDoc">Documento do responsável</label>
+            <input id="responsavelDoc" name="responsavelDoc" type="text">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="grupo-form" id="lgpd">
+        <h2>6. Termos</h2>
+        <label class="check">
+          <input type="checkbox" name="lgpd" required>
+          <span>Autorizo o tratamento local dos dados para fins pedagógicos neste dispositivo, nos termos da LGPD, ciente de que não há envio a um servidor da escola.</span>
+        </label>
+        <label class="check mt-4">
+          <input type="checkbox" name="newsletter">
+          <span>Quero lembretes de estudo (apenas neste navegador, via status da jornada).</span>
+        </label>
+      </fieldset>
+
+      <button class="btn" type="submit">Confirmar matrícula</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="kicker">CSS</p>
+        <p>Matrícula pedagógica de curso livre de CSS.</p>
+      </div>
+      <div>
+        <h2>Estudar</h2>
+        <ul>
+          <li><a href="/pages/sala.html">Sala de aula</a></li>
+          <li><a href="/pages/jornada.html">Jornada</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Aluno</h2>
+        <ul>
+          <li><a href="/pages/aluno.html">Painel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Início</h2>
+        <ul>
+          <li><a href="/index.html">Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="colophon">© 2026 CSS em Folhas · Formulário com validação nativa HTML5 e :has() para estados inválidos.</p>
+  </footer>
+  <script src="/js/core/data.js"></script>
+  <script src="/js/core/app.js"></script>
+  <script src="/js/pages/matricula.js"></script>
+</body>
+</html>
