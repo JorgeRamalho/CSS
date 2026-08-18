@@ -20,12 +20,13 @@ Síntese do que o portal aplica e do porquê da estrutura atual. Não substitui 
 
 | Decisão | Motivo |
 | --- | --- |
-| `index.html` permanece na raiz | É a entrada do site e o `publish` do Netlify aponta para `.`. |
-| Páginas internas em `pages/` | A raiz deixa de misturar rotas de produto com configuração. |
-| Caminhos absolutos a partir da raiz (`/css/...`, `/js/...`) | HTML em `pages/` e na raiz resolvem os mesmos assets. |
-| JavaScript em `core/`, `pages/` e `features/` | Cada arquivo fica na pasta do seu papel, sem um único diretório plano. |
+| `index.html` permanece na raiz | É a entrada do site; o Netlify e o `serve` publicam `.`. |
+| Caminhos absolutos a partir da raiz (`/css/...`, `/js/...`) | HTML em `pages/` resolve os mesmos assets. |
+| JavaScript em `core/`, `pages/` e `features/` | Cada arquivo fica na pasta do seu papel. |
 | Apostila em `docs/produto/` | Separa material didático público de planejamento e inventário. |
-| Redirects 301 no `netlify.toml` | URLs antigas (`/matricula.html`, `/docs/css3-referencia.html`) continuam válidas. |
+| SEO em `seo/` | `robots.txt` e `sitemap.xml` saem da raiz; a URL pública permanece `/robots.txt` e `/sitemap.xml`. |
+| Config em `config/` | `serve.json` e Playwright não ocupam a raiz. |
+| Redirects 301 / rewrites 200 | URLs antigas (`/matricula.html`, `/pages/index.html`, `/docs/css3-referencia.html`) continuam válidas. |
 | Sem bundler | O curso ensina CSS e HTML nativos; scripts são globais via `<script>`. |
 | Estado em `localStorage` (`folhas-aluno-v1`) | Permite matrícula e progresso sem servidor. |
 

@@ -12,4 +12,4 @@ Auditoria de qualidade do portal (não é suíte unitária).
 npm test
 ```
 
-O Playwright sobe `npx serve -l 4173 .` e visita as URLs públicas (`/`, `/pages/matricula.html`, …). Relatórios ficam em `test-results/` (gitignored).
+O Playwright usa `config/playwright.config.js`, sobe `serve` com `config/serve.json` e visita as URLs públicas (`/`, `/pages/matricula.html`, …). Relatórios ficam em `test-results/` (gitignored).

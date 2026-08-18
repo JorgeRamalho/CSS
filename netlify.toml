@@ -28,7 +28,22 @@
   [headers.values]
     Cache-Control = "public, max-age=3600"
 
-# URLs antigas da raiz continuam válidas após a reorganização.
+# SEO fica em pasta; a URL pública permanece na raiz.
+[[redirects]]
+  from = "/pages/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/seo/robots.txt"
+  status = 200
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/seo/sitemap.xml"
+  status = 200
+
 [[redirects]]
   from = "/matricula.html"
   to = "/pages/matricula.html"

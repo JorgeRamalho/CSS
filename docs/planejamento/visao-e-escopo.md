@@ -21,8 +21,10 @@ A metáfora do projeto é pedagógica e técnica ao mesmo tempo: **HTML é o esq
 
 ## Princípios de organização
 
-- A **raiz** só guarda entrada (`index.html`) e configuração.
+- A **raiz** guarda a home (`index.html`) e o que Git, npm e Netlify exigem no topo.
 - Cada **pasta raiz** agrupa um tipo de artefato.
+- As demais páginas HTML ficam em `pages/`.
 - Scripts de página ficam em `js/pages/`, alinhados ao HTML em `pages/`.
 - Recursos visuais experimentais (palco 3D, estúdio, atmosfera) ficam em `js/features/` e nas folhas correspondentes em `css/`.
+- `robots.txt` e `sitemap.xml` ficam em `seo/`; a URL pública continua `/robots.txt` e `/sitemap.xml`.
 - Documentação de engenharia vive em `docs/`; material didático público, em `docs/produto/`.

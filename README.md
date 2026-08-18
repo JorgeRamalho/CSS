@@ -1,6 +1,8 @@
 # CSS em Folhas
 
-Portal estático de estudos de CSS: HTML estrutura o conteúdo; CSS define a identidade visual. A raiz do repositório contém só a entrada do site e os arquivos de configuração.
+Portal estático de estudos de CSS: HTML estrutura o conteúdo; CSS define a identidade visual.
+
+A home (`index.html`) fica na raiz. O restante do site vive em pastas.
 
 ## Entrada rápida
 
@@ -9,27 +11,28 @@ Portal estático de estudos de CSS: HTML estrutura o conteúdo; CSS define a ide
 | `npm run dev` | Servidor local em `http://127.0.0.1:4173` |
 | `npm test` | Auditoria Playwright (SEO, matrícula, sala, jornada, responsividade) |
 
-## Mapa da raiz
+## Raiz
 
-**Arquivos (permanecem aqui)**
+| Arquivo | Por que fica aqui |
+| --- | --- |
+| `index.html` | home do portal |
+| `package.json` / `package-lock.json` | npm |
+| `netlify.toml` | deploy (Netlify lê na raiz) |
+| `.gitignore` | Git |
+| `README.md` | entrada do repositório |
 
-- `index.html` — home do portal
-- `package.json` / `package-lock.json` — scripts e dependências de desenvolvimento
-- `playwright.config.js` — testes de auditoria
-- `netlify.toml` — publicação, headers e redirecionamentos
-- `robots.txt` / `sitemap.xml` — descoberta por buscadores
-- `.gitignore` — artefatos que não entram no repositório
-
-**Pastas**
+## Pastas
 
 | Pasta | Conteúdo |
 | --- | --- |
 | [`pages/`](pages/README.md) | Páginas internas (matrícula, aluno, sala, jornada) |
-| [`css/`](css/README.md) | Folhas de estilo, na ordem da cascata |
-| [`js/`](js/README.md) | Scripts por papel: núcleo, páginas, recursos |
+| [`css/`](css/README.md) | Folhas de estilo |
+| [`js/`](js/README.md) | Scripts (core, pages, features) |
 | [`assets/`](assets/README.md) | Marca e mídia |
 | [`data/`](data/README.md) | Catálogos JSON |
-| [`docs/`](docs/README.md) | Planejamento, pesquisas, estrutura, organização e material didático |
-| [`tests/`](tests/README.md) | Especificações Playwright |
+| [`seo/`](seo/README.md) | `robots.txt` e `sitemap.xml` (URL pública na raiz) |
+| [`config/`](config/README.md) | Playwright e `serve` |
+| [`docs/`](docs/README.md) | Planejamento, pesquisas, estrutura, organização e apostila |
+| [`tests/`](tests/README.md) | Auditoria Playwright |
 
 Documentação completa: [`docs/README.md`](docs/README.md).

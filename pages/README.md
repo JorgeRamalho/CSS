@@ -1,14 +1,12 @@
 # pages/
 
-Páginas internas do portal. A home permanece em `/index.html`.
+Páginas internas do portal. A home permanece em `/index.html` na raiz.
 
-| Arquivo | Rota | Responsabilidade |
+| Arquivo | Rota pública | Script |
 | --- | --- | --- |
-| `matricula.html` | `/pages/matricula.html` | Formulário de cadastro e LGPD |
-| `aluno.html` | `/pages/aluno.html` | Área do aluno |
-| `sala.html` | `/pages/sala.html` | Player e módulos (`?aula=css-06`) |
-| `jornada.html` | `/pages/jornada.html` | Curva, exercícios (`#exercicios`) e laboratório |
+| `matricula.html` | `/pages/matricula.html` | `js/pages/matricula.js` |
+| `aluno.html` | `/pages/aluno.html` | `js/pages/aluno.js` |
+| `sala.html` | `/pages/sala.html` | `js/pages/sala.js` |
+| `jornada.html` | `/pages/jornada.html` | `js/pages/jornada.js` |
 
-Cada HTML carrega `/js/core/data.js`, `/js/core/app.js` e o script correspondente em `js/pages/`.
-
-Redirects de produção: `/matricula.html` → esta pasta (veja `netlify.toml`).
+Marca e rodapé apontam para `/`.

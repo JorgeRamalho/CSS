@@ -46,7 +46,7 @@
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <header class="site-header">
-    <a class="brand" href="/index.html">
+    <a class="brand" href="/">
       <img src="/assets/logo.svg" width="40" height="40" alt="">
       <span class="brand-text"><strong>CSS</strong><span>em Folhas</span></span>
     </a>
@@ -285,56 +285,78 @@
       </article>
     </section>
 
-    <section class="secao estudio-vivo" aria-labelledby="estudio">
-      <div class="secao-cabeca">
-        <div>
-          <p class="kicker">compilador · live preview</p>
+    <section class="secao estudio-vivo" aria-labelledby="estudio" data-estado="compilando">
+      <div class="estudio-hud">
+        <div class="estudio-hud-copy">
+          <p class="kicker">painel avançado · CSS3 ao vivo</p>
           <h2 id="estudio">O log pinta a folha</h2>
+          <p class="legenda">Um palco, um inspector e nove peças. O compilador declara; a folha responde. Loop, Random ou Pause no dock.</p>
         </div>
-        <p class="legenda">À esquerda, o compilador gera CSS. À direita, a arte responde ao vivo. Loop percorre a galeria; Random escolhe a próxima peça.</p>
+        <dl class="estudio-stats">
+          <div>
+            <dt>Peça</dt>
+            <dd data-hud-peca>01 / 09</dd>
+          </div>
+          <div>
+            <dt>Técnica</dt>
+            <dd data-hud-tecnica>conic-gradient</dd>
+          </div>
+          <div>
+            <dt>Frame</dt>
+            <dd data-hud-frame>00%</dd>
+          </div>
+          <div>
+            <dt>Sinal</dt>
+            <dd data-hud-estado>ao vivo</dd>
+          </div>
+        </dl>
+        <div class="estudio-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       </div>
 
-      <div class="estudio-controles" role="toolbar" aria-label="Modo e galeria do compilador">
-        <div class="grupo-ctrl">
-          <span class="kicker">Modo</span>
-          <div class="ctrl-botoes">
-            <button type="button" class="ctrl-btn" data-modo="loop" aria-pressed="true">Loop</button>
-            <button type="button" class="ctrl-btn" data-modo="random" aria-pressed="false">Random</button>
-          </div>
-        </div>
-        <div class="grupo-ctrl">
-          <span class="kicker">Galeria</span>
-          <div class="ctrl-botoes">
-            <button type="button" class="ctrl-btn" data-arte-id="folha" aria-pressed="true">Folha</button>
-            <button type="button" class="ctrl-btn" data-arte-id="aurora" aria-pressed="false">Aurora</button>
-            <button type="button" class="ctrl-btn" data-arte-id="neon" aria-pressed="false">Neon</button>
-            <button type="button" class="ctrl-btn" data-arte-id="onda" aria-pressed="false">Onda</button>
-            <button type="button" class="ctrl-btn" data-arte-id="vitral" aria-pressed="false">Vitral</button>
-          </div>
-        </div>
-      </div>
+      <div class="estudio-palco">
+        <nav class="estudio-rail" aria-label="Galeria de peças">
+          <button type="button" class="rail-peca" data-arte-id="folha" aria-pressed="true" style="--peca-luz:#5eead4">
+            <i></i><span>Folha</span><small>conic</small>
+          </button>
+          <button type="button" class="rail-peca" data-arte-id="aurora" aria-pressed="false" style="--peca-luz:#67e8f9">
+            <i></i><span>Aurora</span><small>blend</small>
+          </button>
+          <button type="button" class="rail-peca" data-arte-id="neon" aria-pressed="false" style="--peca-luz:#f472d0">
+            <i></i><span>Neon</span><small>repeat</small>
+          </button>
+          <button type="button" class="rail-peca" data-arte-id="onda" aria-pressed="false" style="--peca-luz:#38bdf8">
+            <i></i><span>Onda</span><small>delay</small>
+          </button>
+          <button type="button" class="rail-peca" data-arte-id="vitral" aria-pressed="false" style="--peca-luz:#f59e0b">
+            <i></i><span>Vitral</span><small>clip</small>
+          </button>
+          <button type="button" class="rail-peca" data-arte-id="holo" aria-pressed="false" style="--peca-luz:#e879f9">
+            <i></i><span>Holo</span><small>hue</small>
+          </button>
+          <button type="button" class="rail-peca" data-arte-id="orbita" aria-pressed="false" style="--peca-luz:#818cf8">
+            <i></i><span>Órbita</span><small>3D</small>
+          </button>
+          <button type="button" class="rail-peca" data-arte-id="gota" aria-pressed="false" style="--peca-luz:#2dd4bf">
+            <i></i><span>Gota</span><small>goo</small>
+          </button>
+          <button type="button" class="rail-peca" data-arte-id="tipo" aria-pressed="false" style="--peca-luz:#f4efe4">
+            <i></i><span>Tipo</span><small>stroke</small>
+          </button>
+        </nav>
 
-      <div class="estudio-telas">
-        <article class="janela" aria-label="Log de código CSS">
-          <header class="janela-barra">
-            <span class="bolinhas" aria-hidden="true"><i></i><i></i><i></i></span>
-            <strong data-log-arquivo>folha.css — log</strong>
-            <span class="janela-meta" data-live-meta data-estado="compilando">live</span>
-          </header>
-          <div class="janela-corpo">
-            <pre class="log-css" data-log tabindex="0"></pre>
+        <figure class="estudio-canvas" aria-label="Pré-visualização da arte CSS3">
+          <div class="canvas-frame" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
           </div>
-        </article>
-
-        <article class="janela" aria-label="Pré-visualização da arte CSS3">
-          <header class="janela-barra">
-            <span class="bolinhas" aria-hidden="true"><i></i><i></i><i></i></span>
-            <strong>preview — arte CSS3</strong>
-            <span class="janela-meta" data-preview-meta>Folha</span>
-          </header>
-          <div class="janela-corpo">
+          <figcaption class="canvas-meta">
+            <strong data-preview-meta>Folha</strong>
+            <span data-hud-legenda>folha viva · conic-gradient</span>
+          </figcaption>
+          <div class="canvas-corpo">
             <div class="arte" data-arte data-tema="folha">
               <div class="arte-ceu"></div>
+              <div class="arte-halo" aria-hidden="true"></div>
+              <div class="arte-grade" aria-hidden="true"></div>
               <div class="arte-disco"></div>
               <div class="arte-petalas" aria-hidden="true">
                 <span style="--i: 0"></span>
@@ -345,14 +367,39 @@
                 <span style="--i: 5"></span>
               </div>
               <div class="arte-anel"></div>
+              <div class="arte-orbitas" aria-hidden="true">
+                <i style="--i: 0"></i>
+                <i style="--i: 1"></i>
+                <i style="--i: 2"></i>
+              </div>
               <div class="arte-orbe"></div>
               <div class="arte-faixa"></div>
               <div class="arte-spark"></div>
               <p class="arte-titulo" data-arte-titulo>CSS3</p>
-              <span class="arte-legenda" data-arte-legenda>folha viva · conic-gradient</span>
+              <span class="arte-legenda arte-legenda-cena" data-arte-legenda>folha viva · conic-gradient</span>
+              <div class="arte-scan" aria-hidden="true"></div>
             </div>
           </div>
-        </article>
+        </figure>
+
+        <aside class="estudio-inspector">
+          <div class="inspector-dock" role="toolbar" aria-label="Modo do compilador">
+            <button type="button" class="ctrl-btn" data-modo="loop" aria-pressed="true">Loop</button>
+            <button type="button" class="ctrl-btn" data-modo="random" aria-pressed="false">Random</button>
+            <button type="button" class="ctrl-btn" data-pausa aria-pressed="false">Pausar</button>
+          </div>
+          <article class="janela" aria-label="Log de código CSS">
+            <header class="janela-barra">
+              <span class="bolinhas" aria-hidden="true"><i></i><i></i><i></i></span>
+              <strong data-log-arquivo>folha.css</strong>
+              <span class="janela-meta" data-live-meta data-estado="compilando">live</span>
+            </header>
+            <div class="janela-progresso" aria-hidden="true"><i data-log-progresso></i></div>
+            <div class="janela-corpo">
+              <pre class="log-css" data-log tabindex="0"></pre>
+            </div>
+          </article>
+        </aside>
       </div>
     </section>
   </main>

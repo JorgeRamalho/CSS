@@ -1,0 +1,16 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/robots.txt", "destination": "/seo/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/seo/sitemap.xml" }
+  ],
+  "redirects": [
+    { "source": "/pages/index.html", "destination": "/", "type": 301 },
+    { "source": "/matricula.html", "destination": "/pages/matricula.html", "type": 301 },
+    { "source": "/aluno.html", "destination": "/pages/aluno.html", "type": 301 },
+    { "source": "/sala.html", "destination": "/pages/sala.html", "type": 301 },
+    { "source": "/jornada.html", "destination": "/pages/jornada.html", "type": 301 },
+    { "source": "/docs/css3-referencia.html", "destination": "/docs/produto/css3-referencia.html", "type": 301 }
+  ]
+}

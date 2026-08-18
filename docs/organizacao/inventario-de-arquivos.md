@@ -6,14 +6,11 @@ Cada arquivo do projeto, na pasta em que deve viver. Itens gerados (`node_module
 
 | Arquivo | Função |
 | --- | --- |
-| `index.html` | Home: palco 3D, estúdio, atmosfera, convite à matrícula |
+| `index.html` | Home: palco 3D, estúdio, atmosfera |
 | `README.md` | Mapa curto da raiz e comandos |
 | `package.json` | Scripts `dev`, `test`, `test:seo` |
 | `package-lock.json` | Trava das versões de desenvolvimento |
-| `playwright.config.js` | Dois projetos (Chrome desktop e WebKit mobile) + servidor `serve` |
-| `netlify.toml` | Publish `.`, headers de segurança/cache, redirects 301 |
-| `robots.txt` | Permite indexação; aponta o sitemap |
-| `sitemap.xml` | Home e quatro páginas internas |
+| `netlify.toml` | Publish `.`, headers, rewrites de SEO e redirects 301 |
 | `.gitignore` | `node_modules`, relatórios Playwright, `.netlify` |
 
 ## `pages/`
@@ -74,6 +71,20 @@ Cada arquivo do projeto, na pasta em que deve viver. Itens gerados (`node_module
 | Arquivo | Consumidor |
 | --- | --- |
 | `css3-atmosfera.json` | `js/features/atmosfera.js` |
+
+## `seo/`
+
+| Arquivo | URL pública |
+| --- | --- |
+| `robots.txt` | `/robots.txt` |
+| `sitemap.xml` | `/sitemap.xml` |
+
+## `config/`
+
+| Arquivo | Função |
+| --- | --- |
+| `serve.json` | Rewrites da home/SEO e redirects das rotas antigas |
+| `playwright.config.js` | Dois projetos + comando do servidor local |
 
 ## `docs/`
 

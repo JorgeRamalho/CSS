@@ -1,6 +1,6 @@
 # js/core/
 
-Núcleo compartilhado. Presente em `index.html` e em todas as páginas de `pages/`.
+Núcleo compartilhado. Presente em `index.html` (raiz) e em todas as páginas de `pages/`.
 
 | Arquivo | Função |
 | --- | --- |

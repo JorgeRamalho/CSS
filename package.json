@@ -3,9 +3,9 @@
   "private": true,
   "description": "Portal de estudos CSS em Folhas",
   "scripts": {
-    "dev": "npx --yes serve -l 4173 .",
-    "test": "npx --yes playwright test",
-    "test:seo": "npx --yes playwright test tests/auditoria.spec.js"
+    "dev": "npx --yes serve --listen tcp://127.0.0.1:4173 -c config/serve.json .",
+    "test": "npx --yes playwright test -c config/playwright.config.js",
+    "test:seo": "npx --yes playwright test -c config/playwright.config.js tests/auditoria.spec.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1"

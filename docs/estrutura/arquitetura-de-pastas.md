@@ -4,17 +4,14 @@
 
 ```
 Projeto-CSS/
-├── index.html                 entrada do site
-├── package.json               scripts npm
+├── index.html                 home do portal
+├── package.json
 ├── package-lock.json
-├── playwright.config.js       testes
-├── netlify.toml               deploy
-├── robots.txt
-├── sitemap.xml
+├── netlify.toml
 ├── .gitignore
 ├── README.md
 │
-├── pages/                     rotas internas
+├── pages/                     páginas internas
 ├── css/                       folhas (ordem da cascata)
 ├── js/
 │   ├── core/                  dados + chrome do portal
@@ -22,6 +19,8 @@ Projeto-CSS/
 │   └── features/              palco 3D, estúdio, atmosfera
 ├── assets/                    mídia
 ├── data/                      JSON
+├── seo/                       robots.txt e sitemap.xml
+├── config/                    serve.json e playwright.config.js
 ├── docs/
 │   ├── planejamento/
 │   ├── pesquisas/
@@ -33,21 +32,24 @@ Projeto-CSS/
 
 `node_modules/` e `test-results/` existem em desenvolvimento e não fazem parte da arquitetura publicada.
 
+A raiz contém a home (`index.html`) e os arquivos que o Git, o npm e o Netlify precisam no topo do repositório.
+
 ## Contratos entre pastas
 
 | Origem | Destino | Como se referencia |
 | --- | --- | --- |
 | `index.html` e `pages/*.html` | `css/`, `js/`, `assets/` | Caminho absoluto: `/css/tokens.css` |
 | `js/features/atmosfera.js` | `data/css3-atmosfera.json` | `fetch("/data/css3-atmosfera.json")` |
-| Navegação | `pages/*.html` | `/pages/matricula.html`, `/pages/sala.html?aula=` |
+| Navegação | `pages/*.html` | `/`, `/pages/matricula.html`, `/pages/sala.html?aula=` |
 | Download CSS3 | `docs/produto/css3-referencia.html` | `/docs/produto/css3-referencia.html` |
-| Testes | as mesmas URLs públicas | `playwright.config.js` sobe `serve` na raiz |
+| SEO | `seo/robots.txt`, `seo/sitemap.xml` | `/robots.txt`, `/sitemap.xml` (rewrite) |
+| Testes | as mesmas URLs públicas | `config/playwright.config.js` sobe `serve` na raiz |
 
 ## Ordem de carga do CSS
 
 1. `tokens.css` — variáveis
 2. `base.css` — reset, tipografia, `@layer`
-3. `layout.css` — header, status, footer, grids de página
+3. `layout.css` — header, status bar, footer, grids de página
 4. `components.css` — botões, cards, formulário
 5. `pages.css` — ajustes por tela
 6. `efeito-3d.css` e `estudio.css` — só a home precisa destes dois
@@ -63,10 +65,13 @@ Projeto-CSS/
 | URL | Arquivo |
 | --- | --- |
 | `/` | `index.html` |
+| `/index.html` | `index.html` |
 | `/pages/matricula.html` | `pages/matricula.html` |
 | `/pages/aluno.html` | `pages/aluno.html` |
 | `/pages/sala.html` | `pages/sala.html` |
 | `/pages/jornada.html` | `pages/jornada.html` |
 | `/docs/produto/css3-referencia.html` | `docs/produto/css3-referencia.html` |
+| `/robots.txt` | `seo/robots.txt` |
+| `/sitemap.xml` | `seo/sitemap.xml` |
 
-Em produção, `/matricula.html`, `/aluno.html`, `/sala.html`, `/jornada.html` e `/docs/css3-referencia.html` redirecionam com 301.
+Em produção e no `serve` local, `/matricula.html`, `/aluno.html`, `/sala.html`, `/jornada.html`, `/pages/index.html` e `/docs/css3-referencia.html` continuam válidos (rewrite ou 301).

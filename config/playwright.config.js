@@ -1,7 +1,10 @@
+const path = require("path");
 const { defineConfig, devices } = require("@playwright/test");
 
+const raiz = path.join(__dirname, "..");
+
 module.exports = defineConfig({
-  testDir: "./tests",
+  testDir: path.join(raiz, "tests"),
   fullyParallel: true,
   timeout: 30000,
   use: {
@@ -9,7 +12,8 @@ module.exports = defineConfig({
     locale: "pt-BR"
   },
   webServer: {
-    command: "npx --yes serve -l 4173 .",
+    command: "npx --yes serve --listen tcp://127.0.0.1:4173 -c config/serve.json .",
+    cwd: raiz,
     url: "http://127.0.0.1:4173",
     reuseExistingServer: true,
     timeout: 120000

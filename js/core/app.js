@@ -68,7 +68,8 @@ function atualizarStatusBar(estado) {
 function nomeArquivo(caminho) {
   const limpo = String(caminho || "").split("#")[0].split("?")[0];
   const partes = limpo.split("/").filter(Boolean);
-  return partes.pop() || "index.html";
+  const nome = partes.pop() || "index";
+  return nome.replace(/\.html$/i, "") || "index";
 }
 
 function marcarNavegacao() {
