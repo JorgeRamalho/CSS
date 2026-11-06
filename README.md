@@ -1,38 +1,19 @@
-# CSS em Folhas
+📌 ## Scholl CSS3
 
-Portal estático de estudos de CSS: HTML estrutura o conteúdo; CSS define a identidade visual.
+🌐 ## Website Link do projeto online: https://css3-scholl.vercel.app/
 
-A home (`index.html`) fica na raiz. O restante do site vive em pastas.
+📂 ## Repositório: https://github.com//JorgeRamalho/CSS
 
-## Entrada rápida
+💻 ## Tecnologias
 
-| Comando | Função |
-| --- | --- |
-| `npm run dev` | Servidor local em `http://127.0.0.1:4173` |
-| `npm test` | Auditoria Playwright (SEO, matrícula, sala, jornada, responsividade) |
+Html Css JavaScript React Typescript Node.js 
 
-## Raiz
+📲 ## Funcionalidades
+Fotos e Imagens Vídeos Layout Website Style
 
-| Arquivo | Por que fica aqui |
-| --- | --- |
-| `index.html` | home do portal |
-| `package.json` / `package-lock.json` | npm |
-| `netlify.toml` | deploy (Netlify lê na raiz) |
-| `.gitignore` | Git |
-| `README.md` | entrada do repositório |
+📠 ## Como executar git clone 
+... npm install npm run dev
 
-## Pastas
-
-| Pasta | Conteúdo |
-| --- | --- |
-| [`pages/`](pages/README.md) | Páginas internas (matrícula, aluno, sala, jornada) |
-| [`css/`](css/README.md) | Folhas de estilo |
-| [`js/`](js/README.md) | Scripts (core, pages, features) |
-| [`assets/`](assets/README.md) | Marca e mídia |
-| [`data/`](data/README.md) | Catálogos JSON |
-| [`seo/`](seo/README.md) | `robots.txt` e `sitemap.xml` (URL pública na raiz) |
-| [`config/`](config/README.md) | Playwright e `serve` |
-| [`docs/`](docs/README.md) | Planejamento, pesquisas, estrutura, organização e apostila |
-| [`tests/`](tests/README.md) | Auditoria Playwright |
-
-Documentação completa: [`docs/README.md`](docs/README.md).
+📄
+💿 ## Autor: Jorge R. Barbosa 💼 LinkedIn: https://www.linkedin.com/in/jorge-r-barbosa-aabb0417b/ 
+👾 GitHub: https://github.com/JorgeRamalho ☎️ Contato: 41 99143-4153
