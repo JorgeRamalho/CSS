@@ -20,7 +20,7 @@ const FALLBACK_ATMOSFERA = {
 
 async function carregarCatalogo() {
   try {
-    const resposta = await fetch("/data/css3-atmosfera.json", { cache: "no-store" });
+    const resposta = await fetch("data/css3-atmosfera.json", { cache: "no-store" });
     if (!resposta.ok) throw new Error("Catálogo indisponível");
     return await resposta.json();
   } catch {

@@ -65,7 +65,7 @@ test.describe("Header: documentação e exercícios", () => {
     await expect(download).toHaveAttribute("download", /CSS3/i);
     await expect(download).toHaveAttribute("href", /css3-referencia/);
     await expect(download).toHaveAttribute("aria-label", /documentação CSS3/i);
-    await expect(page.locator("nav.nav-principal a[href='/pages/jornada.html#exercicios']")).toHaveText("Exercícios");
+    await expect(page.locator("nav.nav-principal a[href='pages/jornada.html#exercicios']")).toHaveText("Exercícios");
 
     const [arquivo] = await Promise.all([
       page.waitForEvent("download"),
